@@ -37,8 +37,10 @@ public class MajorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup parent) {
-        LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflate.inflate(R.layout.major_view, parent,false);
+        if(view == null) {
+            LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflate.inflate(R.layout.major_view, parent,false);
+        }
         TextView MajorView = view.findViewById(R.id.MajorName);
         TextView ProfView = view.findViewById(R.id.ProfName);
         MajorView.setText(userlist.get(i).getMajor());
